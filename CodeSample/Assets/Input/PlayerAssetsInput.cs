@@ -9,6 +9,8 @@ namespace PlayerControls
 	{
 		[Header("Character Input Values")]
 		public Vector2 move;
+		public Vector2 look;
+		public bool lift;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -22,12 +24,35 @@ namespace PlayerControls
 			MoveInput(value.Get<Vector2>());
 		}
 
+		public void OnLift(InputValue value)
+		{
+			LiftInput(value.isPressed);
+		}
+
+		public void OnLook(InputValue value)
+		{
+			if(cursorInputForLook)
+			{
+				LookInput(value.Get<Vector2>());
+			}
+		}
+
 ////////////////////////////////////////////
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
+
+		public void LookInput(Vector2 newLookDirection)
+		{
+			look = newLookDirection;
+		}
+
+		public void LiftInput(bool newLift)
+		{
+			lift = newLift;
+		}
 ////////////////////////////////////////////////////////
 
 		private void OnApplicationFocus(bool hasFocus)
