@@ -11,6 +11,9 @@ namespace PlayerControls
 		public Vector2 move;
 		public Vector2 look;
 		public bool lift;
+		public bool jump;
+		public bool attack;
+		public bool sprint; 
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -27,6 +30,21 @@ namespace PlayerControls
 		public void OnLift(InputValue value)
 		{
 			LiftInput(value.isPressed);
+		}
+
+		public void OnJump(InputValue value)
+		{
+			JumpInput(value.isPressed);
+		}
+
+		public void OnAttack(InputValue value)
+		{
+			AttackInput(value.isPressed);
+		}
+
+		public void OnSprint(InputValue value)
+		{
+			SprintInput(value.isPressed);
 		}
 
 		public void OnLook(InputValue value)
@@ -53,6 +71,22 @@ namespace PlayerControls
 		{
 			lift = newLift;
 		}
+
+		public void JumpInput(bool newJump)
+		{
+			jump = newJump;
+		}
+
+		public void AttackInput(bool newAttack)
+		{
+			attack = newAttack;
+		}
+
+		public void SprintInput(bool newSprint)
+		{
+			sprint = newSprint;
+		}
+
 ////////////////////////////////////////////////////////
 
 		private void OnApplicationFocus(bool hasFocus)

@@ -32,7 +32,7 @@ public class triggerAction : MonoBehaviour
 
             // Generate a random point within the spawn range
             Vector3 randomPoint = new Vector3(spawnPoint.position.x + Random.Range(-SpawnRange, SpawnRange),
-                spawnPoint.position.y,
+                1f,
                 spawnPoint.position.z + Random.Range(-SpawnRange, SpawnRange));
             
             // Spawn the object at the random point
