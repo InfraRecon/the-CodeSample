@@ -16,13 +16,37 @@ The system is architected from the ground up prioritizing loose coupling, data-d
 
 ---
 
-## ⚡ Engineering & Optimization Milestones
-
-* **SDLC Process Compression:** Structured with modular component nodes that dropped system integration and pipeline iterations by up to 50% during test phases.
-* **Memory Footprint Minimization:** Avoids continuous heap allocations inside performance-critical loops (`Update()` blocks). The framework makes use of optimized collection pooling patterns to prevent garbage collection spikes.
-* **Defensive Git Architecture:** Built utilizing custom branching structures, structural regression filtering, and strict code hygiene principles to ensure full stability inside large-scale production repositories.
+### Architectural Breakdown:
+* **`PathfindingSolver.cs` (The Math Matrix):** Implements specialized search logic and heuristic matrix algorithms. It caches internal collection data structures to avoid heap allocation spikes during heavy frames.
+* **`GridManager.cs` (The Spatial Engine):** Dynamically processes raw landscape vertex arrays to determine node availability and boundary thresholds without running expensive raycasts.
+* **`AgentController.cs` (The Physics Decoupler):** Manages velocity updates and trajectory interpolation using event-driven C# Actions, ensuring it never stays tightly coupled to the solver engine.
+* **`MovementConfig.cs` (The Data Carrier):** Utilizes Unity `ScriptableObjects` to hold distinct data configurations (such as step height bounds or turning speed vectors) so parameters can be tweaked at runtime without rebuilding scripts.
 
 ---
 
-## 🛠️ Code Structure Breakdown
+## ⚡ Engineering & Optimization Focus
 
+* **SDLC Lifecycle Compression:** Designed with modular, independent script arrays that compressed integration timelines by up to 50% during system stress tests.
+* **Garbage Collection (GC) Defense:** Eliminates continuous memory allocations inside critical performance loops (`Update()` blocks). The framework relies on pooled array resets to prevent frame-rate stuttering on lower-end targets.
+* **Defensive Version Architecture:** Managed through clear Git version control practices, regression checking, and modular structural isolation to ensure easy deployment inside professional studio pipelines.
+
+---
+
+## 🚀 Integration & Running the Simulation
+
+### Pre-requisites
+* Unity 6 (Recommended) or Unity 2022.3 LTS+
+* Universal Render Pipeline (URP) or High Definition Render Pipeline (HDRP) architecture configuration
+
+### Rapid Project Drops
+1. Download or clone this repository directly into your project's `Assets/` tree.
+2. Link the `GridManager` to a centralized manager node inside your active runtime hierarchy.
+3. Hook your agent scripts directly to the `OnPathCalculationCompleted` C# Action callback array to trigger asynchronous agent routing.
+
+---
+
+## 📜 Licensing & Usage
+This framework is distributed under the terms of the **BSD-3-Clause License**. It acts as an open-source engineering showcase tracking defensive programming paradigms and engine profiling concepts.
+
+---
+*For B2B contracting availability, engineering consultations, or technical studio reinforcement inquiries, connect via **Roberto.Valentin.gmd@outlook.com**.*
